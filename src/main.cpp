@@ -7,6 +7,12 @@
 static dWorldID world;
 static dSpaceID space;
 
+// dimensions
+//
+// servos 2 cm x 1 cm x 3 cm
+// legs 0.5 cm x 3 cm x 7.5 cm
+// longer legs 0.5 cm x 3 cm x 8.5 cm
+
 struct PCatLeg {
   dBodyID b_top;
   dGeomID g_top;
@@ -69,7 +75,7 @@ static void simLoop (int pause) {
   /* pos = dGeomGetPosition (geom); */
   /* R = dGeomGetRotation (geom); */
 
-  const double sides[3] = {20.225, 20.085, 20.2};
+  const double sides[3] = {0.225, 0.085, 0.01};
 
   dsDrawBoxD(
     dGeomGetPosition(cat.g_spine),
@@ -88,21 +94,24 @@ int main (int argc, char **argv) {
   fn.path_to_textures = "textures";
 
   dInitODE ();
-  // create world
+
   world = dWorldCreate ();
   space = dHashSpaceCreate (0);
-  dWorldSetGravity (world,0,0,-0.81);
+  dWorldSetGravity (world,0,0,-0.0);
   dWorldSetCFM (world,1e-5);
   dCreatePlane (space,0,0,1,0);
   contactgroup = dJointGroupCreate (0);
-  // create object
+
+
+  // CAT SPINE
   cat.b_spine = dBodyCreate (world);
   cat.g_spine = dCreateBox(space, 0.255, 0.085, 0.001);
   dMassSetBox(&cat.m_spine, 1, 0.255, 0.085, 0.001);
   dBodySetMass(cat.b_spine, &cat.m_spine);
   dGeomSetBody(cat.g_spine, cat.b_spine);
-  /* // set initial position */
-  dBodySetPosition(cat.b_spine, 0, 0, 30);
+  dBodySetPosition(cat.b_spine, 0, 0, 0.5);
+
+
   // run simulation
   dsSimulationLoop(argc, argv, 352, 288, &fn);
   // clean up
