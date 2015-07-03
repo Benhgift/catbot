@@ -14,4 +14,4 @@ Then from the root ode directory run these to copy the extra lib things for visu
     sudo cp -rp include/drawstuff /usr/local/include/
     sudo cp -rp drawstuff/textures /usr/local/include/drawstuff/
 
-Then just `cd` to catbot and `make`
+Then just `cd` to catbot and `make` and `./robosim.out`
