@@ -75,7 +75,8 @@ static void simLoop (int pause) {
   /* pos = dGeomGetPosition (geom); */
   /* R = dGeomGetRotation (geom); */
 
-  const double sides[3] = {0.225, 0.085, 0.01};
+  //const double sides[3] = {0.225, 0.085, 0.01};
+  const double sides[3] = {02.25, 00.85, 00.1};
 
   dsDrawBoxD(
     dGeomGetPosition(cat.g_spine),
@@ -97,7 +98,7 @@ int main (int argc, char **argv) {
 
   world = dWorldCreate ();
   space = dHashSpaceCreate (0);
-  dWorldSetGravity (world,0,0,-0.0);
+  dWorldSetGravity (world,0,0,-8.0);
   dWorldSetCFM (world,1e-5);
   dCreatePlane (space,0,0,1,0);
   contactgroup = dJointGroupCreate (0);
