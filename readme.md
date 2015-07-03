@@ -3,7 +3,7 @@
 Clone ODE from `hg clone https://bitbucket.org/odedevs/ode/` and then compile/install ode using these commands
 
     sudo apt-get install build-essential autoconf libtool autoconf automake
- pkg-config
+ pkg-config libglu1-mesa-dev freeglut3-dev mesa-common-dev
     ./configure --enable-double-precision --with-trimesh-optcode --enable-new-trimesh --enable-shared
     make
     sudo make install
