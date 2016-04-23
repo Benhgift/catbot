@@ -2,9 +2,14 @@
 
 Clone ODE from `hg clone https://bitbucket.org/odedevs/ode/` and then compile/install ode using these commands
 
-    sudo apt-get install build-essential autoconf libtool autoconf automake pkg-config libglu1-mesa-dev freeglut3-dev mesa-common-dev
+    sudo apt-get install build-essential autoconf libtool autoconf automake pkg-config libglu1-mesa-dev freeglut3-dev mesa-common-dev libode-dev
+
+    ./bootstrap
+
     ./configure --enable-double-precision --with-trimesh-optcode --enable-new-trimesh --enable-shared
+
     make
+
     sudo make install
 
 Then from the root ode directory run these to copy the extra lib things for visuals
