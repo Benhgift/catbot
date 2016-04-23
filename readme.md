@@ -21,4 +21,3 @@ Then from the root ode directory run these to copy the extra lib things for visu
 
 Then just `cd` to catbot and `make` and `./robosim.out`
 
-BEEP BOOP
